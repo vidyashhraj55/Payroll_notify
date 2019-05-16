@@ -13,9 +13,11 @@ import { passValidator } from '../custom-validators';
   styleUrls: ['./forgotpassword.component.css']
 })
 export class ForgotpasswordComponent implements OnInit {
+  hide=true;
   show1:boolean=true;
   show2:boolean=false;
   forgotForm: FormGroup;
+ 
   constructor(private formBuilder: FormBuilder,private router:Router) { 
 
     

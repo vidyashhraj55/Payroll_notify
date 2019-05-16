@@ -3,7 +3,7 @@ import { FormGroup,FormGroupDirective, NgForm, FormBuilder, FormControl, Validat
 import { Router } from '@angular/router';
 import {ErrorStateMatcher} from '@angular/material/core';
 import swal from 'sweetalert';
-
+import {ServiceService} from '../service/service.service'
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -13,7 +13,8 @@ export class SignInComponent implements OnInit {
 
   hide = true;
   loginForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,private router:Router) { }
+ 
+  constructor(private formBuilder: FormBuilder,private router:Router ,private service:ServiceService) { }
   
 
   ngOnInit() {
@@ -24,14 +25,27 @@ export class SignInComponent implements OnInit {
   }
   
   navigatelogin(){
-    swal({
-      title: "login!!",
-      text: "your successfully logged-in",
-      icon: "success"
-    });
-  
+    var data = this.loginForm.value;
+    const data1 = { email: data.email + "@accionlabs.com", password: data.password }
+   console.log(data1);
+    this.service.login(data1).subscribe((response: any) => {
+      if (response.success) {
+        this.router.navigate(['sign-up']);
+        swal("Good job!", "Succesfully Logged In", "success");
+       
+      }
+      else{
+        swal("Sorry!", "Incorrect login", "error");
+      }
     
-}
+    }, (err) => {
+      swal("Sorry", "Incorrect Login", "error");})
+    }
+
+
+    
+  
+  
 navigateRegister(){
 
  this.router.navigate(['sign-up'])

@@ -8,7 +8,8 @@
        <h2 class="heading">PayRoll Notification</h2>
         <h3 class="sign">Sign In</h3>
       </div>
-              <div class="emailform" [formGroup]="loginForm">
+              <div class="emailform">
+                <form class="formlogin" [formGroup]="loginForm" action=" " (submit)="navigatelogin()" autocomplete="off" method="POST">
               <mat-form-field class="email" style="width:100%;">
                 <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
                 <span matSuffix style="color: firebrick;" >@accionlabs.com</span>
@@ -24,13 +25,14 @@
                   </mat-error>
               </mat-form-field>
               <mat-checkbox>Remember me!</mat-checkbox>
+              </form>
                 </div>
+
                 <div class="buttons">
                   <button mat-flat-button class="forlog" (click)="navigateforgot()">Forgot password?</button>
                   <button id="loginbtn" mat-flat-button class="login" (click)="navigatelogin()">Login</button>
                
                   <button id="regisbtn" mat-flat-button class="registerd" matTooltip="new user register here!!" Class="example-tooltip-red" (click)="navigateRegister()">not yet registerd? <span class="regi">Register</span></button>
-            
            </div>     
     </div>
 </div>

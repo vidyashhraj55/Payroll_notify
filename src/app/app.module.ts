@@ -14,6 +14,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component'; 
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ServiceService } from './service/service.service';
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,10 +34,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     FormsModule,ReactiveFormsModule,
     BrowserAnimationsModule,
     MatTooltipModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    HttpClientModule
     
   ],
-  providers: [],
+  providers: [ServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

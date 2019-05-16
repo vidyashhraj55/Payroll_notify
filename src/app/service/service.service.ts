@@ -1,0 +1,21 @@
+import { Injectable } from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AppSettings } from '../app.settings';
+@Injectable({
+  providedIn: 'root'
+})
+export class ServiceService {
+   
+  baseUrl:String="http://localhost:3000/users/login";
+
+  constructor(private http:HttpClient,private router:Router) { 
+  }
+  public login(data){
+    const httpOption = {
+      headers: new HttpHeaders({ 'Content-type' : 'application/json'})
+      
+    };
+    return this.http.post("http://localhost:3000/users/login",data,httpOption);
+  }
+}
