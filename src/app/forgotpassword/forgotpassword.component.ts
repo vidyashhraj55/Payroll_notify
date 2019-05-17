@@ -33,8 +33,7 @@ export class ForgotpasswordComponent implements OnInit {
     this.forgotForm = this.formBuilder.group({
       email:['',[Validators.required, Validators.pattern('^[a-zA-Z0-9._]+$')]],
       accesscode:['',[Validators.required,Validators.minLength(8),Validators.pattern('[0-9]*')]],
-        password:['',[Validators.required, passValidator, Validators.pattern('^[0-9]*[a-zA-Z0-9]+[a-zA-Z0-9]+[a-zA-Z0-9]+$')]],
-        confirmpassword: ['', [Validators.required, passValidator]]
+        password:['',[Validators.required, passValidator, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')]],        confirmpassword: ['', [Validators.required, passValidator]]
    
         });
   }
@@ -44,6 +43,7 @@ export class ForgotpasswordComponent implements OnInit {
   this.forgotForm.controls.accesscode.setValue("")
   this.forgotForm.controls.password.setValue("")
   this.forgotForm.controls.confirmpassword.setValue("")
+  this.forgotForm.controls['email'].enable();
   }
 
   sendmail(){

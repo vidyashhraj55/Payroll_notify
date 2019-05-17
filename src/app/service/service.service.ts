@@ -18,4 +18,11 @@ export class ServiceService {
     };
     return this.http.post("http://localhost:3000/users/login",data,httpOption);
   }
+  public register(data){
+    const httpOption = {
+      headers: new HttpHeaders({ 'Content-type' : 'application/json'})
+      
+    };
+    return this.http.post("http://localhost:3000/users/register",data,httpOption);
+  }
 }

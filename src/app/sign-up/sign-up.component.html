@@ -1,8 +1,54 @@
 <div class="outside">
 
+  <div class="inside" [formGroup]="registerForm">
+    <div class="icon">
+       <h3 class="sign">Sign In</h3>
+     </div>
 
-  <div class="inside">
-
-    
-  </div>
+     <div class="emailform">
+     
+    <mat-form-field class="email" style="width:100%;">
+      <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
+      <span matSuffix style="color: firebrick;" >@accionlabs.com</span>
+      <mat-error *ngIf="!registerForm.hasError('pattern')">
+        Enter <strong>valid </strong>Email Id
+      </mat-error> 
+    </mat-form-field>
+    <mat-form-field class="example-full-width" style="width:100%;">
+      <input matInput placeholder="Password"  matTooltip=" Minimum eight characters, at least one Caps, one number and one special character:"  [type]="hide ? 'password' : 'text'" formControlName="password" [errorStateMatcher]="matcher">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-error *ngIf="!registerForm.hasError('pattern')">
+       password is not valid
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Enter your confirm password"
+        formControlName="confirmpassword"
+        [type]="hide ? 'password' : 'text'"
+        style="width:100%;"
+      />
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
+      <mat-error *ngIf = "registerForm.controls.confirmpassword.value.length == 0" >
+          confirm passwrod required
+        </mat-error>
+      <mat-error >
+        password missmatch
+      </mat-error>
+      
+    </mat-form-field>
+      </div>
+      <div class="clearbtn">
+        <button mat-stroked-button color="primary" (click)="reset()">Clear</button>
+        </div>
+        <div class="savebtn">
+        <button mat-stroked-button color="accent"  (click)="save()" [disabled]="!registerForm.valid">Save</button>
+      </div> 
+   
 </div>
+  
+
+  </div>

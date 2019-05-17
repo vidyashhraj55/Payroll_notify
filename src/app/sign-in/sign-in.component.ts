@@ -30,7 +30,7 @@ export class SignInComponent implements OnInit {
    console.log(data1);
     this.service.login(data1).subscribe((response: any) => {
       if (response.success) {
-        this.router.navigate(['sign-up']);
+        this.router.navigate(['dash']);
         swal("Good job!", "Succesfully Logged In", "success");
        
       }

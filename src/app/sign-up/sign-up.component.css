@@ -1,0 +1,68 @@
+.heading{
+    /* font-family: 'Pacifico', cursive; */
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+   font-style: oblique;
+   font-weight: bold;
+    color: rgb(35,52,118);
+    justify-self:start;
+   }
+   .outside{
+        display: grid;
+        height: 95vh;
+        /* width:100%; */
+        /* width: 100%; */
+        grid-template-columns:2fr 3fr 2fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        background-color: #444;
+       background-image:url( '../../assets/3.jpg'); 
+        background-size: cover;
+        /* opacity: 1; */
+        /* box-shadow: 0 -8px 6px -6px black;  */
+    }
+    .inside{
+      background-color: white; 
+      grid-column:2/3;
+      grid-row:2/3;
+      box-shadow: 0 -8px 6px -6px black;
+      border-radius: 6px;
+      display: grid;
+      grid-template-columns: 1fr 6fr 3fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-gap:10px;
+    }
+
+    .icon{
+      grid-column: 2/3;
+      grid-row:1/2; 
+      font-size: 20px;
+      justify-self:center;
+      align-self:center;
+    }
+    
+.sign{
+  margin-left: 90px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+    .emailform{
+      grid-column: 2/3;
+      grid-row: 2/3;
+    }
+    .clearbtn{
+        grid-column: 2/3;
+        grid-row:3/4;
+        justify-self: center;
+        align-self:center;
+     
+    }
+    .savebtn{
+        grid-column: 2/3;
+        grid-row:3/4;
+        justify-self: end;
+        align-self:center;
+    }
+    .mat-stroked-button{
+        border: 1px solid currentColor;
+    }
+    .mat-form-field{
+        width: 100%;
+    }

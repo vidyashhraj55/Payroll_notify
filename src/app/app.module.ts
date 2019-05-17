@@ -9,20 +9,24 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTableModule} from '@angular/material/table';
+
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component'; 
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ServiceService } from './service/service.service';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component'
 @NgModule({
   declarations: [
     AppComponent,
  
     SignInComponent,
     SignUpComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,8 @@ import {HttpClientModule} from '@angular/common/http'
     BrowserAnimationsModule,
     MatTooltipModule,
     MatCheckboxModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
     
   ],
   providers: [ServiceService],
