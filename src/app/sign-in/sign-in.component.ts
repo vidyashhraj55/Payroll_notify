@@ -29,6 +29,8 @@ export class SignInComponent implements OnInit {
     const data1 = { email: data.email + "@accionlabs.com", password: data.password }
    console.log(data1);
     this.service.login(data1).subscribe((response: any) => {
+      console.log("response",response);
+      console.log(response.message);
       if (response.success) {
         this.router.navigate(['dash']);
         swal("Good job!", "Succesfully Logged In", "success");
@@ -39,7 +41,8 @@ export class SignInComponent implements OnInit {
       }
     
     }, (err) => {
-      swal("Sorry", "Incorrect Login", "error");})
+      console.log(err);
+      swal(err.error.message);})
     }
 
 

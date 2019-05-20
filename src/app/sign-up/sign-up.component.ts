@@ -5,6 +5,7 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import swal from 'sweetalert';
 import {ServiceService} from '../service/service.service'
 import { passValidator } from '../custom-validators';
+import { validateVerticalPosition } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-sign-up',
@@ -28,6 +29,7 @@ isValid(controlName) {
 
 ngOnInit() {
   this.registerForm = this.formBuilder.group({
+    username:['',[Validators.required]],
     email:['',[Validators.required, Validators.pattern('^[a-zA-Z0-9._]+$')]],
       password:['',[Validators.required, passValidator, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')]],
       confirmpassword: ['', [Validators.required, passValidator]]
@@ -43,11 +45,14 @@ this.registerForm.controls.confirmpassword.setValue("")
 }
 save(){
   var data = this.registerForm.value;
-  const data1 = { email: data.email + "@accionlabs.com", password: data.password }
+  const data1 = { username:data.username,email: data.email + "@accionlabs.com", password: data.password }
  console.log(data1);
   this.service.register(data1).subscribe((response: any) => {
+    console.log(response);
     if (response) {
   this.router.navigate(['sign-in']);
+  // console.log(response.message);
+ swal("Good job!", response.message, "success");
 }
   })
 }

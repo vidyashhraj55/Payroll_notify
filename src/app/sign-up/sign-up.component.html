@@ -2,11 +2,16 @@
 
   <div class="inside" [formGroup]="registerForm">
     <div class="icon">
-       <h3 class="sign">Sign In</h3>
+       <h3 class="sign">Sign Up</h3>
      </div>
 
      <div class="emailform">
-     
+        <mat-form-field class="example-full-width" style="width:100%;">
+            <input matInput placeholder="Username"  formControlName="username"/>
+            <mat-error *ngIf="registerForm.controls.username.value == 0">
+               please enter username
+              </mat-error>
+          </mat-form-field>
     <mat-form-field class="email" style="width:100%;">
       <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
       <span matSuffix style="color: firebrick;" >@accionlabs.com</span>
