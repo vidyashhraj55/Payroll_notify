@@ -1,67 +1,107 @@
-<div class="example-container mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
+<div class="outer">
+    <div class="dash">
+        <!-- <mat-drawer-container>
+            <mat-drawer #drawer class="example-sidenav" mode="side"></mat-drawer>
+           <button mat-icon-button (click)="drawer.toggle()">
+                        <mat-icon>menu</mat-icon></button>
+        </mat-drawer-container> -->
+     
+            <!-- <mat-drawer-container class="example-container" autosize>
+                <mat-drawer #drawer class="example-sidenav" mode="side">
+                 
+                  <button (click)="showFiller = !showFiller" mat-raised-button>
+                   
+                  </button> 
+                  
+                </mat-drawer>
+                <button mat-icon-button (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon></button>
+            
+  
+                 
+              
+              </mat-drawer-container>  -->
+
+  
+      </div>
+<div class="inner">
+    <mat-form-field style="width:100%;"><i style="font-size: 30px" matTooltip="SEARCH" class="material-icons">
+        search
+        </i>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="">
+      </mat-form-field>
+  
+  <div class="example-container mat-elevation-z8" style="width:100%;">
+  <table mat-table [dataSource]="dataSource" class="tabldata" matSort class="mat-elevation-z8">
     <!-- Name Column -->
     <ng-container matColumnDef="Employee_ID" sticky>
-      <th mat-header-cell *matHeaderCellDef> Employee_ID </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="sort "> Employee_ID </th>
       <td mat-cell *matCellDef="let element"> {{element.Employee_ID}} </td>
     </ng-container>
 
     <!-- Position Column -->
-    <ng-container matColumnDef="EmployeeName">
-      <th mat-header-cell *matHeaderCellDef> EmployeeName</th>
+    <ng-container matColumnDef="EmployeeName" sticky>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> EmployeeName</th>
       <td mat-cell *matCellDef="let element"> {{element.EmployeeName}} </td>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="DateofJoining">
-      <th mat-header-cell *matHeaderCellDef> DateofJoining </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> DateofJoining </th>
       <td mat-cell *matCellDef="let element"> {{element.DateofJoining}} </td>
     </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="PayrollCycle">
-      <th mat-header-cell *matHeaderCellDef> PayrollCycle </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> PayrollCycle </th>
       <td mat-cell *matCellDef="let element"> {{element.PayrollCycle}} </td>
     </ng-container>
     <ng-container matColumnDef="AnnualFixedCTC">
-      <th mat-header-cell *matHeaderCellDef> AnnualFixedCTC </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> AnnualFixedCTC </th>
       <td mat-cell *matCellDef="let element"> {{element.AnnualFixedCTC}} </td>
     </ng-container>
     <ng-container matColumnDef="MonthlyFixedCTC">
-      <th mat-header-cell *matHeaderCellDef> MonthlyFixedCTC </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> MonthlyFixedCTC </th>
       <td mat-cell *matCellDef="let element"> {{element.MonthlyFixedCTC}} </td>
     </ng-container>
     <ng-container matColumnDef="TotalPerformanceBonus">
-      <th mat-header-cell *matHeaderCellDef> TotalPerformanceBonus </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> TotalPerformanceBonus </th>
       <td mat-cell *matCellDef="let element"> {{element.TotalPerformanceBonus}} </td>
     </ng-container>
     <ng-container matColumnDef="Performance_Installments">
-      <th mat-header-cell *matHeaderCellDef> Performance_Installments </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Performance_Installments </th>
       <td mat-cell *matCellDef="let element"> {{element.Performance_Installments}} </td>
     </ng-container>
     <ng-container matColumnDef="Performance_EachPayment">
-      <th mat-header-cell *matHeaderCellDef> Performance_EachPayment </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Performance_EachPayment </th>
       <td mat-cell *matCellDef="let element"> {{element.Performance_EachPayment}} </td>
     </ng-container>
     <ng-container matColumnDef="JoiningBonus">
-      <th mat-header-cell *matHeaderCellDef> JoiningBonus </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> JoiningBonus </th>
       <td mat-cell *matCellDef="let element"> {{element.JoiningBonus}} </td>
     </ng-container>
     <ng-container matColumnDef="Joining_Installments">
-      <th mat-header-cell *matHeaderCellDef> Joining_Installments </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Joining_Installments </th>
       <td mat-cell *matCellDef="let element"> {{element.Joining_Installments}} </td>
     </ng-container>
     <ng-container matColumnDef="Joining_EachPayment">
-      <th mat-header-cell *matHeaderCellDef> Joining_EachPayment </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Joining_EachPayment </th>
       <td mat-cell *matCellDef="let element"> {{element.Joining_EachPayment}} </td>
     </ng-container>
     <ng-container matColumnDef="MedicalInsurance">
-      <th mat-header-cell *matHeaderCellDef> MedicalInsurance </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> MedicalInsurance </th>
       <td mat-cell *matCellDef="let element"> {{element.MedicalInsurance}} </td>
     </ng-container>
     <ng-container matColumnDef="TotalCTC" stickyEnd>
-      <th mat-header-cell *matHeaderCellDef> TotalCTC </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> TotalCTC </th>
       <td mat-cell *matCellDef="let element"> {{element.TotalCTC}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Action" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button><i class="material-icons">
+          edit
+          </i></button></td>
     </ng-container>
   
     <!-- Star Column -->
@@ -75,4 +115,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  </div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
 </div>
