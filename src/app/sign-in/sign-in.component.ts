@@ -16,13 +16,14 @@ export class SignInComponent implements OnInit {
  
   constructor(private formBuilder: FormBuilder,private router:Router ,private service:ServiceService) { }
   
-
+ 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z0-9._]+$')]),
+      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._]+$')]],
       password: ['', [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')]]
       })
   }
+  
   
   navigatelogin(){
     var data = this.loginForm.value;

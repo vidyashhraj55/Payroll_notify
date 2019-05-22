@@ -1,0 +1,31 @@
+.outer{
+    display: grid;
+    grid-template-columns:2fr 3fr 2fr;
+    grid-template-rows: 1fr 4fr 1fr;
+
+}
+.inner{
+    grid-column: 2/3;
+    grid-row:1/3;
+    /* box-shadow: 1px solid black; */
+    box-shadow: 0 -8px 6px -6px black;
+    display: grid;
+    /* grid-template-columns: 4fr 5fr ;
+    grid-template-rows: 4fr 3fr ; */
+}
+
+.addform{
+    /* display: flex; */
+    /* flex-direction: column; */
+    width: 100%;
+    box-shadow: 1px 1px 1px 1px solid black;
+    border-radius: 1px;
+}
+.mat-form-field{
+    width:250px;
+}
+.firstform{
+ grid-column: 1/3;
+ grid-row: 1/2;
+ padding:20px;
+}

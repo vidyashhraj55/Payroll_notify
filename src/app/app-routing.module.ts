@@ -4,12 +4,14 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddFormComponent } from './add-form/add-form.component';
 
 const routes: Routes = [
   {path:'sign-in' ,component: SignInComponent},
   {path:'sign-up' , component: SignUpComponent},
   {path:'forgot' , component:ForgotpasswordComponent },
   {path:'dash' , component:DashboardComponent },
+  {path:'add-form' , component:AddFormComponent },
   {path:'**',component: SignInComponent}
 
 ];

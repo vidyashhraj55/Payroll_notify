@@ -23,6 +23,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSortModule} from '@angular/material/sort';
+import { AddFormComponent } from './add-form/add-form.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +34,8 @@ import {MatSortModule} from '@angular/material/sort';
     SignInComponent,
     SignUpComponent,
     ForgotpasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddFormComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,9 @@ import {MatSortModule} from '@angular/material/sort';
     MatSlideToggleModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatSortModule
+    MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
     
   ],
   providers: [ServiceService],
