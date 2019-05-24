@@ -23,25 +23,31 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSortModule} from '@angular/material/sort';
-import { AddFormComponent } from './add-form/add-form.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddFormComponent } from './add-form/add-form.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
- 
+    // DialogOverviewExampleDialog,
     SignInComponent,
     SignUpComponent,
     ForgotpasswordComponent,
     DashboardComponent,
     AddFormComponent
+  
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
     MatInputModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatButtonModule,
     FormsModule,ReactiveFormsModule,
@@ -56,10 +62,12 @@ import { MatNativeDateModule } from '@angular/material';
     MatSidenavModule,
     MatSortModule,
     MatDatepickerModule,
-    MatNativeDateModule 
+    MatNativeDateModule ,
+    MatGridListModule
     
   ],
   providers: [ServiceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddFormComponent]
 })
 export class AppModule { }

@@ -16,21 +16,21 @@ export class ServiceService {
       headers: new HttpHeaders({ 'Content-type' : 'application/json'})
       
     };
-    return this.http.post("http://localhost:4000/users/login",data,httpOption);
+    return this.http.post("http://localhost:4000/login",data,httpOption);
   }
   public register(data){
     const httpOption = {
       headers: new HttpHeaders({ 'Content-type' : 'application/json'})
       
     };
-    return this.http.post("http://localhost:4000/users/register",data,httpOption);
+    return this.http.post("http://localhost:4000/register",data,httpOption);
   }
   public verfiyEmail(data){
     const httpOption = {
       headers: new HttpHeaders({ 'Content-type' : 'application/json'})
       
     };
-    return this.http.post("http://localhost:4000/users/forgot",data,httpOption);
+    return this.http.post("http://localhost:4000/forgot",data,httpOption);
   }
   public resetpassword(data){
     const httpOption = {

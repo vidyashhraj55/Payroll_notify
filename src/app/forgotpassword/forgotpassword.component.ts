@@ -52,13 +52,20 @@ export class ForgotpasswordComponent implements OnInit {
     const data1 = { email: data.email + "@accionlabs.com" };
     console.log(data1);
     this.service.verfiyEmail(data1).subscribe((response: any) => {
+      console.log(response.message);
       if (response) {
     swal("email is verified, accesscode is sent your mail", "success")
    setTimeout(()=>{this.show2=true;},2000)
    this.forgotForm.controls['email'].disable();
   }
-})
+  else{
+    swal("Sorry!", "Incorrect login", "error");
   }
+
+}, (err) => {
+  console.log(err);
+  swal(err.error.message);})
+}
   save(){
     var data=this.forgotForm.value;
     const token={token:data.accesscode, password: data.password };

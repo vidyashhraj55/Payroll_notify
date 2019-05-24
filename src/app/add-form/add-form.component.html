@@ -1,153 +1,165 @@
-<div class="outer">
-  <div class="inner">
-    <div class="addform" [formGroup]="addForm">
-      <div class="firstform">
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="EmployeeId" formControlName="employeeID" />
-        <mat-error *ngIf="!addForm.hasError('pattern')">
-          please enter valid number
-        </mat-error>
-      </mat-form-field>
+<div class="form">
+<div class="outer1">  
+  <h2>Employee Information</h2> 
+  <button mat-button mat-dialog-close><mat-icon>close</mat-icon></button>
+  <h4>Please fill out  information below.</h4>
 
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          placeholder="EmployeeName"
-          formControlName="employeeName"
-        />
-        <mat-error *ngIf="!addForm.hasError('pattern')">
-          please enter valid name
-        </mat-error>
-      </mat-form-field>
-      </div>
-      <div class="secondform">
-      <mat-form-field>
-        <input
-          matInput
-          [matDatepicker]="picker"
-          placeholder="Date of join"
-          formControlName="dateofJoining"
-        />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="!addForm.controls.dateofJoining.valid">
-          enter valid date [MM/DD/YYYY]
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="payCycle" formControlName="payCycle" />
-        <mat-error *ngIf="!addForm.controls.dateofJoining.valid">
-          enter paycycle month
-        </mat-error>
-      </mat-form-field>
-      </div>
-      <div class="thirdform">
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          placeholder="AnnualFixedCTC"
-          formControlName="AnnualFixedCTC"
-        />
-        <mat-error *ngIf="!addForm.hasError('pattern')">
-          AnnualFixedCTC required
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          placeholder="MonthlyFixedCTC"
-          formControlName="MonthlyFixedCTC"
-        />
-        <mat-error *ngIf="!addForm.hasError('pattern')">
-          MonthlyFixedCTC required
-        </mat-error>
-      </mat-form-field>
-      </div>
-      <div class="fourthform">
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          placeholder="TotalPerformanceBonus"
-          formControlName="TotalPerformanceBonus"
-        />
-        <mat-error *ngIf="!addForm.hasError('pattern')">
-          TotalPerformanceBonus required
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          placeholder="PB_Installments"
-          formControlName="PB_Installments"
-        />
-        <mat-error *ngIf="!addForm.hasError('pattern')">
-          PB_Installments required
-        </mat-error>
-      </mat-form-field>
-      </div>
-      <div class="fifthform">
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          placeholder="PB_EachPayment"
-          formControlName="PB_EachPayment"
-        />
-        <mat-error *ngIf="!addForm.hasError('pattern')">
-          PB_EachPayment required
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          placeholder="JoiningBonus"
-          formControlName="JoiningBonus"
-        />
-        <mat-error *ngIf="!addForm.hasError('pattern')">
-          JoiningBonus required
-        </mat-error>
-      </mat-form-field>
-      </div>
-      <div class="sixthform">
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          placeholder="JB_Installments"
-          formControlName="JB_Installments"
-        />
-        <mat-error *ngIf="!addForm.hasError('pattern')">
-          PB_EachPayment required
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          placeholder="JB_EachPayment"
-          formControlName="JB_EachPayment"
-        />
-        <mat-error *ngIf="!addForm.hasError('pattern')">
-          JB_EachPayment required
-        </mat-error>
-      </mat-form-field>
-      </div>
-      <div class="seventhform">
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          placeholder="MedicalInsurance"
-          formControlName="MedicalInsurance"
-        />
-        <mat-error *ngIf="!addForm.hasError('pattern')">
-          MedicalInsurance required
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="TotalCTC" formControlName="TotalCTC" />
-        <mat-error *ngIf="!addForm.hasError('pattern')">
-          TotalCTC required
-        </mat-error>
-      </mat-form-field>
-      </div>
-    </div>
-  </div>
 </div>
+<div class="outer" [formGroup]="addForm">
+<mat-form-field class="example-full-width">
+<input matInput placeholder="EmployeeId" formControlName="employeeID" />
+<mat-error *ngIf="!addForm.hasError('pattern')">
+please enter valid number
+</mat-error>
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+<input
+matInput
+placeholder="EmployeeName"
+formControlName="employeeName"
+/>
+<mat-error *ngIf="!addForm.hasError('pattern')">
+please enter valid name
+</mat-error>
+</mat-form-field>
+
+<mat-form-field>
+<input
+matInput
+[matDatepicker]="picker"
+placeholder="Date of join"
+formControlName="dateofJoining"
+/>
+<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+<mat-datepicker #picker></mat-datepicker>
+<mat-error *ngIf="!addForm.controls.dateofJoining.valid">
+enter valid date [MM/DD/YYYY]
+</mat-error>
+</mat-form-field>
+<mat-form-field class="example-full-width">
+<input matInput placeholder="payCycle" formControlName="payCycle" />
+<mat-error *ngIf="!addForm.controls.dateofJoining.valid">
+enter paycycle month
+</mat-error>
+</mat-form-field>
+
+
+<mat-form-field class="example-full-width">
+<input
+matInput
+placeholder="AnnualFixedCTC"
+formControlName="AnnualFixedCTC"
+/>
+<mat-error *ngIf="!addForm.hasError('pattern')">
+AnnualFixedCTC required
+</mat-error>
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+<input
+matInput
+placeholder="MonthlyFixedCTC"
+formControlName="MonthlyFixedCTC"
+/>
+<mat-error *ngIf="!addForm.hasError('pattern')">
+MonthlyFixedCTC required
+</mat-error>
+</mat-form-field>
+
+
+<mat-form-field class="example-full-width">
+<input
+matInput
+placeholder="TotalPerformanceBonus"
+formControlName="TotalPerformanceBonus"
+/>
+<mat-error *ngIf="!addForm.hasError('pattern')">
+TotalPerformanceBonus required
+</mat-error>
+</mat-form-field>
+<mat-form-field class="example-full-width">
+<input
+matInput
+placeholder="PB_Installments"
+formControlName="PB_Installments"
+/>
+<mat-error *ngIf="!addForm.hasError('pattern')">
+PB_Installments required
+</mat-error>
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+<input
+matInput
+placeholder="PB_EachPayment"
+formControlName="PB_EachPayment"
+/>
+<mat-error *ngIf="!addForm.hasError('pattern')">
+PB_EachPayment required
+</mat-error>
+</mat-form-field>
+<mat-form-field class="example-full-width">
+<input
+matInput
+placeholder="JoiningBonus"
+formControlName="JoiningBonus"
+/>
+<mat-error *ngIf="!addForm.hasError('pattern')">
+JoiningBonus required
+</mat-error>
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+<input
+matInput
+placeholder="JB_Installments"
+formControlName="JB_Installments"
+/>
+<mat-error *ngIf="!addForm.hasError('pattern')">
+PB_EachPayment required
+</mat-error>
+</mat-form-field>
+<mat-form-field class="example-full-width">
+<input
+matInput
+placeholder="JB_EachPayment"
+formControlName="JB_EachPayment"
+/>
+<mat-error *ngIf="!addForm.hasError('pattern')">
+JB_EachPayment required
+</mat-error>
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+<input
+matInput
+placeholder="MedicalInsurance"
+formControlName="MedicalInsurance"
+/>
+<mat-error *ngIf="!addForm.hasError('pattern')">
+MedicalInsurance required
+</mat-error>
+</mat-form-field>
+<mat-form-field class="example-full-width">
+<input matInput placeholder="TotalCTC" formControlName="TotalCTC" />
+<mat-error *ngIf="!addForm.hasError('pattern')">
+    TotalCTC required
+  </mat-error>
+
+ </mat-form-field>
+
+        <div class="clearbtn">
+       
+        </div>
+
+        <div class="savebtn">
+        <button mat-stroked-button color="primary" (click)="reset()">Clear</button>
+        <button mat-stroked-button color="warn"  (click)="save()" [disabled]="!addForm .valid">Save</button>
+        <!-- [disabled]=registerForm.invalid -->
+      </div> 
+</div>
+</div>
+
+
+

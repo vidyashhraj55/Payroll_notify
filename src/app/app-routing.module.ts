@@ -7,11 +7,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddFormComponent } from './add-form/add-form.component';
 
 const routes: Routes = [
+  {path:'' , component:DashboardComponent },
   {path:'sign-in' ,component: SignInComponent},
+  {path:'addform' ,component: AddFormComponent},
   {path:'sign-up' , component: SignUpComponent},
   {path:'forgot' , component:ForgotpasswordComponent },
-  {path:'dash' , component:DashboardComponent },
-  {path:'add-form' , component:AddFormComponent },
   {path:'**',component: SignInComponent}
 
 ];

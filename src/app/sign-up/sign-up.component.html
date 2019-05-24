@@ -8,7 +8,7 @@
      <div class="emailform">
         <mat-form-field class="example-full-width" style="width:100%;">
             <input matInput placeholder="Username"  formControlName="username"/>
-            <mat-error *ngIf="registerForm.controls.username.value == 0">
+            <mat-error  *ngIf = "registerForm.controls.username.errors?.required">
                please enter username
               </mat-error>
           </mat-form-field>
@@ -37,8 +37,8 @@
       <mat-icon matSuffix (click)="hide = !hide">{{
         hide ? "visibility_off" : "visibility"
       }}</mat-icon>
-      <mat-error *ngIf = "registerForm.controls.confirmpassword.value.length == 0" >
-          confirm passwrod required
+      <mat-error *ngIf = "registerForm.controls.confirmpassword.errors?.required" >
+        confirm passwrod required
         </mat-error>
       <mat-error >
         password missmatch
@@ -51,6 +51,7 @@
         </div>
         <div class="savebtn">
         <button mat-stroked-button color="accent"  (click)="save()" [disabled]="!registerForm.valid">Save</button>
+        <!-- [disabled]=registerForm.invalid -->
       </div> 
    
 </div>

@@ -1,9 +1,15 @@
-import {Component, OnInit, ViewChild, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, ViewChild, Output, EventEmitter,Inject} from '@angular/core';
 import {PageEvent} from '@angular/material';
 import {MatPaginator,MatSort, MatTableDataSource} from '@angular/material';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceService } from '../service/service.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA,MatDialogConfig} from '@angular/material';
+import { DateValidator } from '../date-validators';
+import { AddFormComponent } from '../add-form/add-form.component';
+
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -12,29 +18,46 @@ import { ServiceService } from '../service/service.service';
 })
 export class DashboardComponent implements OnInit{
 
-  constructor(private formBuilder: FormBuilder,private router:Router ,private service:ServiceService) { }
 
+  constructor(public dialog: MatDialog,private formBuilder: FormBuilder,private router:Router ,private service:ServiceService) {
+
+  }
+
+ 
+
+  
   // @Output() public sidenavToggle = new EventEmitter();
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  searchKey:string;
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-  }
+//
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+}
+  
+
+  applyFilter() {
+    this.dataSource.filter = this.searchKey.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
-
-  navigateaddform(){
-    this.router.navigate(['add-form']);
+  searchclear(){
+    this.searchKey="";
+    this.applyFilter();
   }
-
+  addemployee(){
+    const dailogconfig=new MatDialogConfig();
+    dailogconfig.disableClose=true;
+    dailogconfig.autoFocus=true;
+    dailogconfig.width="60%";
+    this.dialog.open(AddFormComponent,dailogconfig);
+  }
   displayedColumns =
       ['Employee_ID', 'EmployeeName', 'DateofJoining', 'PayCycle', 'AnnualFixedCTC', 'MonthlyFixedCTC', 'TotalPerformanceBonus', 'PB_Installments',
     'PB_EachPayment','JoiningBonus','JB_Installments','JB_EachPayment','MedicalInsurance','TotalCTC','Action'];
@@ -68,4 +91,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
  
 ];
+
+
+
 
