@@ -18,7 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component'; 
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ServiceService } from './service/service.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -28,6 +28,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddFormComponent } from './add-form/add-form.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 @NgModule({
@@ -66,7 +67,12 @@ import { AddFormComponent } from './add-form/add-form.component';
     MatGridListModule
     
   ],
-  providers: [ServiceService],
+  providers: [ServiceService,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    }],
   bootstrap: [AppComponent],
   entryComponents: [AddFormComponent]
 })

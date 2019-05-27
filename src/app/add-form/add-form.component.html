@@ -7,7 +7,7 @@
 </div>
 <div class="outer" [formGroup]="addForm">
 <mat-form-field class="example-full-width">
-<input matInput placeholder="EmployeeId" formControlName="employeeID" />
+<input matInput placeholder="EmployeeId" formControlName="Employee_ID" />
 <mat-error *ngIf="!addForm.hasError('pattern')">
 please enter valid number
 </mat-error>
@@ -17,7 +17,7 @@ please enter valid number
 <input
 matInput
 placeholder="EmployeeName"
-formControlName="employeeName"
+formControlName="EmployeeName"
 />
 <mat-error *ngIf="!addForm.hasError('pattern')">
 please enter valid name
@@ -29,17 +29,17 @@ please enter valid name
 matInput
 [matDatepicker]="picker"
 placeholder="Date of join"
-formControlName="dateofJoining"
+formControlName="DateOfJoining"
 />
 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 <mat-datepicker #picker></mat-datepicker>
-<mat-error *ngIf="!addForm.controls.dateofJoining.valid">
+<mat-error *ngIf="!addForm.controls.DateOfJoining.valid">
 enter valid date [MM/DD/YYYY]
 </mat-error>
 </mat-form-field>
 <mat-form-field class="example-full-width">
-<input matInput placeholder="payCycle" formControlName="payCycle" />
-<mat-error *ngIf="!addForm.controls.dateofJoining.valid">
+<input matInput placeholder="payCycle" formControlName="PayCycle" />
+<mat-error *ngIf="!addForm.controls.DateOfJoining.valid">
 enter paycycle month
 </mat-error>
 </mat-form-field>
@@ -155,7 +155,7 @@ MedicalInsurance required
 
         <div class="savebtn">
         <button mat-stroked-button color="primary" (click)="reset()">Clear</button>
-        <button mat-stroked-button color="warn"  (click)="save()" [disabled]="!addForm .valid">Save</button>
+        <button mat-stroked-button color="warn"  (click)="saveEmployee()" [disabled]="!addForm .valid">Save</button>
         <!-- [disabled]=registerForm.invalid -->
       </div> 
 </div>

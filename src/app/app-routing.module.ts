@@ -5,11 +5,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddFormComponent } from './add-form/add-form.component';
+import { AuthGuard } from './authguard';
 
 const routes: Routes = [
-  {path:'' , component:DashboardComponent },
+  {path:'' , component:SignInComponent },
   {path:'sign-in' ,component: SignInComponent},
-  {path:'addform' ,component: AddFormComponent},
+  {path:'dash' ,component: DashboardComponent,canActivate:[AuthGuard]},
   {path:'sign-up' , component: SignUpComponent},
   {path:'forgot' , component:ForgotpasswordComponent },
   {path:'**',component: SignInComponent}

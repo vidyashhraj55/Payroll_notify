@@ -38,10 +38,7 @@ ngOnInit() {
 }
 
 reset(){
-this.registerForm.controls.email.setValue("")
-this.registerForm.controls.accesscode.setValue("")
-this.registerForm.controls.password.setValue("")
-this.registerForm.controls.confirmpassword.setValue("")
+this.registerForm.reset();
 }
 save(){
   var data = this.registerForm.value;

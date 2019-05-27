@@ -32,7 +32,9 @@ export class SignInComponent implements OnInit {
     this.service.login(data1).subscribe((response: any) => {
       console.log("response",response);
       console.log(response.message);
+      // console.log(response.token);
       if (response.success) {
+        sessionStorage.setItem('token',response.token);
         this.router.navigate(['dash']);
         swal("Good job!", "Succesfully Logged In", "success");
        

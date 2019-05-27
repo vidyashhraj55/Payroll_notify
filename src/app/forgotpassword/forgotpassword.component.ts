@@ -40,10 +40,7 @@ export class ForgotpasswordComponent implements OnInit {
   }
   
   reset(){
-  this.forgotForm.controls.email.setValue("")
-  this.forgotForm.controls.accesscode.setValue("")
-  this.forgotForm.controls.password.setValue("")
-  this.forgotForm.controls.confirmpassword.setValue("")
+  this.forgotForm.reset();
   this.forgotForm.controls['email'].enable();
   }
 
@@ -62,10 +59,8 @@ export class ForgotpasswordComponent implements OnInit {
     swal("Sorry!", "Incorrect login", "error");
   }
 
-}, (err) => {
-  console.log(err);
-  swal(err.error.message);})
-}
+})
+  }
   save(){
     var data=this.forgotForm.value;
     const token={token:data.accesscode, password: data.password };

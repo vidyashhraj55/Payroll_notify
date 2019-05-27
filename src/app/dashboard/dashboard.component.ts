@@ -58,27 +58,31 @@ export class DashboardComponent implements OnInit{
     dailogconfig.width="60%";
     this.dialog.open(AddFormComponent,dailogconfig);
   }
+  onEdit(row){
+    this.dialog.open(AddFormComponent);
+      
+  }
   displayedColumns =
       ['Employee_ID', 'EmployeeName', 'DateofJoining', 'PayCycle', 'AnnualFixedCTC', 'MonthlyFixedCTC', 'TotalPerformanceBonus', 'PB_Installments',
     'PB_EachPayment','JoiningBonus','JB_Installments','JB_EachPayment','MedicalInsurance','TotalCTC','Action'];
 }
 
 export interface PeriodicElement {
-  Employee_ID:number;
-  EmployeeName:string;
-  DateofJoining:string;
-  PayCycle:string;
-  AnnualFixedCTC:number;
-  MonthlyFixedCTC:number;
-  TotalPerformanceBonus:number;
-  PB_Installments:number;
-  PB_EachPayment:number;
-  JoiningBonus:number;
-  JB_Installments:number;
-  JB_EachPayment:number;
-  MedicalInsurance:number;
-  TotalCTC:number; 
-  Action:string; 
+  Employee_ID:Number;
+  EmployeeName:String;
+  DateofJoining:String;
+  PayCycle:String;
+  AnnualFixedCTC:Number;
+  MonthlyFixedCTC:Number;
+  TotalPerformanceBonus:Number;
+  PB_Installments:Number;
+  PB_EachPayment:Number;
+  JoiningBonus:Number;
+  JB_Installments:Number;
+  JB_EachPayment:Number;
+  MedicalInsurance:Number;
+  TotalCTC:Number; 
+  Action:String; 
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
