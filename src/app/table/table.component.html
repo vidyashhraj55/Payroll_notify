@@ -1,0 +1,108 @@
+<div class="outer"> 
+    <div class="inner">
+    
+        <mat-form-field  style="width:80%;"><i style="font-size: 30px" matTooltip="SEARCH" class="material-icons">
+            search
+            </i>
+            <button mat-button  class="serach-form-field" matSuffix mat-icon-button arial-lable="clear" *ngIf="searchKey" (click)="searchclear()">
+              <mat-icon>close</mat-icon>
+            </button>
+            <input matInput  [(ngModel)]="searchKey"  (keyup)="applyFilter()" placeholder="" autocomplete="off">
+    
+          </mat-form-field>
+          <button mat-raised-button  style="margin-left: 20px" (click)="addemployee()"><mat-icon>person_add</mat-icon></button>   
+          <button mat-raised-button  style="margin-left: 20px"><mat-icon>get_app</mat-icon></button>      
+      
+       <!-- <mat-form-field class="serach-form-field" floatLable="never">
+         <input matInput [(ngModel)]="serachkey" placeholder="Search" autocomplete="off" />
+         <button mat-button matSuffix mat-icon-button arial-lable="clear" *ngIf="searchKey">
+           <mat-icon>close</mat-icon>
+         </button>
+       </mat-form-field> -->
+      <div class="example-container mat-elevation-z8" style="width:97%; ">
+      <table mat-table [dataSource]="dataSource" class="tabldata" matSort class="mat-elevation-z8">
+        <!-- Name Column -->
+        <ng-container matColumnDef="Employee_ID" sticky>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="sort"> Employee_ID </th>
+          <td mat-cell *matCellDef="let element" style="color:black; background-color: lightgray "> {{element.Employee_ID}} </td>
+        </ng-container>
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="EmployeeName" sticky>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> EmployeeName</th>
+          <td mat-cell *matCellDef="let element"  style="color:black; background-color: lightgray "> {{element.EmployeeName}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="DateofJoining">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> DateofJoining </th>
+          <td mat-cell *matCellDef="let element"> {{element.DateOfJoining | date:'dd/MM/yyyy'}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="PayCycle">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> PayCycle </th>
+          <td mat-cell *matCellDef="let element"> {{element.PayCycle}} </td>
+        </ng-container>
+        <ng-container matColumnDef="AnnualFixedCTC">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> AnnualFixedCTC </th>
+          <td mat-cell *matCellDef="let element"> {{element.AnnualFixedCTC}} </td>
+        </ng-container>
+        <ng-container matColumnDef="MonthlyFixedCTC">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> MonthlyFixedCTC </th>
+          <td mat-cell *matCellDef="let element"> {{element.MonthlyFixedCTC}} </td>
+        </ng-container>
+        <ng-container matColumnDef="TotalPerformanceBonus">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> TotalPerformanceBonus </th>
+          <td mat-cell *matCellDef="let element"> {{element.TotalPerformanceBonus}} </td>
+        </ng-container>
+        <ng-container matColumnDef="PB_Installments">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> PB_Installments </th>
+          <td mat-cell *matCellDef="let element"> {{element.PB_Installments}} </td>
+        </ng-container>
+        <ng-container matColumnDef="PB_EachPayment">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> PB_EachPayment </th>
+          <td mat-cell *matCellDef="let element"> {{element.PB_EachPayment}} </td>
+        </ng-container>
+        <ng-container matColumnDef="JoiningBonus">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> JoiningBonus </th>
+          <td mat-cell *matCellDef="let element"> {{element.JoiningBonus}} </td>
+        </ng-container>
+        <ng-container matColumnDef="JB_Installments">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> JB_Installments </th>
+          <td mat-cell *matCellDef="let element"> {{element.JB_Installments}} </td>
+        </ng-container>
+        <ng-container matColumnDef="JB_EachPayment">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> JB_EachPayment </th>
+          <td mat-cell *matCellDef="let element"> {{element.JB_EachPayment}} </td>
+        </ng-container>
+        <ng-container matColumnDef="MedicalInsurance">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> MedicalInsurance </th>
+          <td mat-cell *matCellDef="let element"> {{element.MedicalInsurance}} </td>
+        </ng-container>
+        <ng-container matColumnDef="TotalCTC" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> TotalCTC </th>
+          <td mat-cell *matCellDef="let element" style="color:black; background-color: lightgray "> {{element.TotalCTC}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Action" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef> Action </th> 
+          <td mat-cell *matCellDef="let row" style="color:black; background-color: lightgrey ">
+            <button mat-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
+            </td>
+        </ng-container>
+      
+        <!-- Star Column -->
+        <ng-container matColumnDef="star" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon>more_vert</mat-icon>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      </div>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+    </div>
+    </div>

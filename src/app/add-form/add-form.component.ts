@@ -48,8 +48,9 @@ export class AddFormComponent implements OnInit {
         if (response) {
           console.log(response);
          
-          swal("Good job!", "New Employee added successfully", "success");
+          this.service.success(':: Submitted successfully');
           this.dialogRef.close();
+       
     }
   })
 }

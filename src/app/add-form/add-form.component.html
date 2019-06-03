@@ -5,7 +5,7 @@
   <h4>Please fill out  information below.</h4>
 
 </div>
-<div class="outer" [formGroup]="addForm">
+<div class="outer" [formGroup]="addForm" >
 <mat-form-field class="example-full-width">
 <input matInput placeholder="EmployeeId" formControlName="Employee_ID" />
 <mat-error *ngIf="!addForm.hasError('pattern')">
@@ -155,7 +155,7 @@ MedicalInsurance required
 
         <div class="savebtn">
         <button mat-stroked-button color="primary" (click)="reset()">Clear</button>
-        <button mat-stroked-button color="warn"  (click)="saveEmployee()" [disabled]="!addForm .valid">Save</button>
+        <button mat-stroked-button color="warn"  (click)="saveEmployee()" type="submit" [disabled]="!addForm .valid">Save</button>
         <!-- [disabled]=registerForm.invalid -->
       </div> 
 </div>
