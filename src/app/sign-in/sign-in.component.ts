@@ -35,6 +35,7 @@ export class SignInComponent implements OnInit {
       // console.log(response.token);
       if (response.success) {
         sessionStorage.setItem('token',response.token);
+     
         this.router.navigate(['dash']);
         swal("Good job!", "Succesfully Logged In", "success");
        

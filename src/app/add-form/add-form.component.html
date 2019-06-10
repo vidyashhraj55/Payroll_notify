@@ -5,9 +5,9 @@
   <h4>Please fill out  information below.</h4>
 
 </div>
-<div class="outer" [formGroup]="addForm">
+<div class="outer" [formGroup]="addForm" >
 <mat-form-field class="example-full-width">
-<input matInput placeholder="EmployeeId" formControlName="Employee_ID" />
+<input matInput placeholder="Employee Id" formControlName="Employee_ID" />
 <mat-error *ngIf="!addForm.hasError('pattern')">
 please enter valid number
 </mat-error>
@@ -16,7 +16,7 @@ please enter valid number
 <mat-form-field class="example-full-width">
 <input
 matInput
-placeholder="EmployeeName"
+placeholder="Employee Name"
 formControlName="EmployeeName"
 />
 <mat-error *ngIf="!addForm.hasError('pattern')">
@@ -25,7 +25,7 @@ please enter valid name
 </mat-form-field>
 
 <mat-form-field>
-<input
+<input readonly
 matInput
 [matDatepicker]="picker"
 placeholder="Date of join"
@@ -38,8 +38,8 @@ enter valid date [MM/DD/YYYY]
 </mat-error>
 </mat-form-field>
 <mat-form-field class="example-full-width">
-<input matInput placeholder="payCycle" formControlName="PayCycle" />
-<mat-error *ngIf="!addForm.controls.DateOfJoining.valid">
+<input matInput placeholder="pay Cycle" formControlName="PayCycle" />
+<mat-error *ngIf="!addForm.controls.PayCycle.valid">
 enter paycycle month
 </mat-error>
 </mat-form-field>
@@ -48,7 +48,7 @@ enter paycycle month
 <mat-form-field class="example-full-width">
 <input
 matInput
-placeholder="AnnualFixedCTC"
+placeholder="Annual Fixed CTC"
 formControlName="AnnualFixedCTC"
 />
 <mat-error *ngIf="!addForm.hasError('pattern')">
@@ -59,7 +59,7 @@ AnnualFixedCTC required
 <mat-form-field class="example-full-width">
 <input
 matInput
-placeholder="MonthlyFixedCTC"
+placeholder="Monthly Fixed CTC"
 formControlName="MonthlyFixedCTC"
 />
 <mat-error *ngIf="!addForm.hasError('pattern')">
@@ -71,7 +71,7 @@ MonthlyFixedCTC required
 <mat-form-field class="example-full-width">
 <input
 matInput
-placeholder="TotalPerformanceBonus"
+placeholder="Total Performance Bonus"
 formControlName="TotalPerformanceBonus"
 />
 <mat-error *ngIf="!addForm.hasError('pattern')">
@@ -81,7 +81,7 @@ TotalPerformanceBonus required
 <mat-form-field class="example-full-width">
 <input
 matInput
-placeholder="PB_Installments"
+placeholder="PB Installments"
 formControlName="PB_Installments"
 />
 <mat-error *ngIf="!addForm.hasError('pattern')">
@@ -92,7 +92,7 @@ PB_Installments required
 <mat-form-field class="example-full-width">
 <input
 matInput
-placeholder="PB_EachPayment"
+placeholder="PB EachPayment"
 formControlName="PB_EachPayment"
 />
 <mat-error *ngIf="!addForm.hasError('pattern')">
@@ -102,7 +102,7 @@ PB_EachPayment required
 <mat-form-field class="example-full-width">
 <input
 matInput
-placeholder="JoiningBonus"
+placeholder="Joining Bonus"
 formControlName="JoiningBonus"
 />
 <mat-error *ngIf="!addForm.hasError('pattern')">
@@ -113,7 +113,7 @@ JoiningBonus required
 <mat-form-field class="example-full-width">
 <input
 matInput
-placeholder="JB_Installments"
+placeholder="JB Installments"
 formControlName="JB_Installments"
 />
 <mat-error *ngIf="!addForm.hasError('pattern')">
@@ -123,7 +123,7 @@ PB_EachPayment required
 <mat-form-field class="example-full-width">
 <input
 matInput
-placeholder="JB_EachPayment"
+placeholder="JB EachPayment"
 formControlName="JB_EachPayment"
 />
 <mat-error *ngIf="!addForm.hasError('pattern')">
@@ -134,7 +134,7 @@ JB_EachPayment required
 <mat-form-field class="example-full-width">
 <input
 matInput
-placeholder="MedicalInsurance"
+placeholder="Medical Insurance"
 formControlName="MedicalInsurance"
 />
 <mat-error *ngIf="!addForm.hasError('pattern')">
@@ -142,7 +142,7 @@ MedicalInsurance required
 </mat-error>
 </mat-form-field>
 <mat-form-field class="example-full-width">
-<input matInput placeholder="TotalCTC" formControlName="TotalCTC" />
+<input matInput placeholder="Total CTC" formControlName="TotalCTC" />
 <mat-error *ngIf="!addForm.hasError('pattern')">
     TotalCTC required
   </mat-error>
@@ -155,11 +155,19 @@ MedicalInsurance required
 
         <div class="savebtn">
         <button mat-stroked-button color="primary" (click)="reset()">Clear</button>
-        <button mat-stroked-button color="warn"  (click)="saveEmployee()" [disabled]="!addForm .valid">Save</button>
+        <button mat-stroked-button color="warn" *ngIf="showsave" (click)="saveEmployee()"
+         type="submit">Save</button>
+         <button mat-stroked-button color="warn" *ngIf="showedit" (click)="editEmployee()"
+         type="submit">edit</button>
         <!-- [disabled]=registerForm.invalid -->
       </div> 
 </div>
 </div>
 
+<!-- 
+(click)="updateEmployee(Employee_ID.value,EmployeeName.value,DateOfJoining.valid,payCycle.value,
+AnnualFixedCTC.value,MonthlyFixedCTC.value,TotalPerformanceBonus.value,PB_Installments.value
+,PB_EachPayment.value,JoiningBonus.value,JB_Installments.value,JB_EachPayment.value,
+MedicalInsurance.value) " -->
 
 

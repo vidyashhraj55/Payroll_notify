@@ -1,0 +1,86 @@
+.outer{
+    display: grid;
+    height: 90vh;
+    grid-template-columns:  1fr  3fr 3fr 3fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    justify-items: center;
+    background-image: url('../../assets/back1.jpg');
+    /* background-color: linear-gradiant */
+    background-size: cover;
+}
+
+.card1{
+grid-row:2/3;
+grid-column:2/3;
+display: grid;
+grid-template-rows:15vh 15vh 13vh;
+grid-template-columns: 1fr;
+}
+.file1{
+    grid-row:2/3;
+    grid-column: 1/2;
+  
+}
+.filebtn{
+    grid-row:3/4;
+    grid-column: 1/2;
+  
+  
+}
+
+.card2{
+    grid-row:2/3;
+    grid-column:3/4;
+}
+.card3{
+    grid-row:2/3;
+    grid-column: 4/5;
+}
+mat-card {
+    width:250px;
+    height: 250px;
+    
+}
+/* .upload{
+    border: 1px dashed;
+} */
+
+.googleupbtn{
+    border: 1px solid currentColor ;
+    /* margin-top: 100px; */
+    margin-left:70px;
+    width:90px;
+    height: 40px;
+
+}
+/* mat-icon{
+    margin-left:90px;
+  
+    font-size: 50px;;
+} */
+span{
+   
+    margin-left:30px;
+}
+mat-card-header{
+    
+    background-color: #842c4d;
+    color: white;
+}
+mat-card-content{
+    /* background-image: url('../../assets/google.jpg'); */
+    background-size: cover;
+    /* background-color: thistle; */
+    height: 220px;
+}
+
+::placeholder {
+    color: red !important;
+  }
+  .fileupbtn{
+    border: 1px solid currentColor ;
+    margin-top: 100px; 
+    margin-left:70px;
+    width:90px;
+    height: 40px;
+  }

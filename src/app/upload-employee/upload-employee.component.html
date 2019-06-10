@@ -1,0 +1,42 @@
+<div class="outer">
+
+  <div class="card1">
+    <mat-card class="upload">
+        <mat-card-header>
+            <mat-card-title>File Upload</mat-card-title>
+          </mat-card-header>
+      <!-- <mat-icon>cloud_upload</mat-icon><br /><span
+        >Drag and drop File Here</span
+      >
+      OR -->
+      <div class="file1">
+      <input size="60" type="file" (change)="onFileChanged($event)" />
+      </div>
+      <div class="filebtn">
+      <button mat-stroked-button class="fileupbtn" (click)="upload()"><i style="font-size: 40px" class="material-icons">
+          cloud_upload
+          </i></button>
+      </div>
+    </mat-card>
+  </div>
+  <div class="card2">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Google Upload</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+        <mat-form-field class="example-full-width" style=" width: 100%;">
+            <input matInput placeholder="Enter Url">
+          </mat-form-field>
+          <button mat-stroked-button  class="googleupbtn" ><i style="font-size: 40px" class="material-icons">
+            cloud_download
+              </i></button>
+            </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="card3">
+    <mat-card> <mat-card-header>
+        <mat-card-title>optional</mat-card-title>
+      </mat-card-header></mat-card>
+  </div>
+</div>

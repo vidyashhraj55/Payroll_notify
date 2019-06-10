@@ -11,7 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatTabsModule} from '@angular/material/tabs';
+import {MatRadioModule} from '@angular/material/radio';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,16 +19,24 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ServiceService } from './service/service.service';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import { DashboardComponent } from './dashboard/dashboard.component';
+
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSortModule} from '@angular/material/sort';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material';
+import { MatNativeDateModule, MatListModule } from '@angular/material';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddFormComponent } from './add-form/add-form.component';
 import { AuthInterceptor } from './auth.interceptor';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { FileSelectDirective } from 'ng2-file-upload';
+import { LayoutModule } from '@angular/cdk/layout';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UploadEmployeeComponent } from './upload-employee/upload-employee.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import {MatCardModule} from '@angular/material/card';
+import { FileUploadModule } from "ng2-file-upload"; 
 
 
 @NgModule({
@@ -39,7 +47,10 @@ import { AuthInterceptor } from './auth.interceptor';
     SignUpComponent,
     ForgotpasswordComponent,
     DashboardComponent,
-    AddFormComponent
+    AddFormComponent,
+    UploadEmployeeComponent,
+    EmployeeListComponent,
+    
   
   ],
   
@@ -64,7 +75,14 @@ import { AuthInterceptor } from './auth.interceptor';
     MatSortModule,
     MatDatepickerModule,
     MatNativeDateModule ,
-    MatGridListModule
+    MatGridListModule,
+    MatSnackBarModule,
+    LayoutModule,
+    MatListModule,
+    MatRadioModule,
+    MatCardModule,
+    FileUploadModule
+    
     
   ],
   providers: [ServiceService,
